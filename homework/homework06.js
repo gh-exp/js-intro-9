@@ -126,7 +126,6 @@ const secondMin = (arr) => {
         if (el < firstMin) { 
             secMin = firstMin; 
             firstMin = el; 
-            
         } 
         else if (el < secMin && el !== firstMin) secMin = el; 
     } 
