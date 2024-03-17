@@ -48,14 +48,12 @@ console.log(averageOfEdges(-2, -2, 10));
 console.log(averageOfEdges(-3, 15, -3));
 console.log(averageOfEdges(10, 13, 20));
 
-
 console.log(`\n======================== Task - 6 ========================`);
 const noA = (arr) => arr.map(el => el.toLowerCase().startsWith('a') ? "###" : el);
 
 console.log(noA(["javascript", "hello", "123", "xyz"]));
 console.log(noA(["apple", "123", "ABC", "javascript"]));
 console.log(noA(["apple", "abc", "ABC", "Alex", "A"]));
-
 
 console.log(`\n======================== Task - 7 ========================`);
 const no3and5 = (arr) => arr.map(el => el % 15 === 0 ? 101 : el % 3 === 0 ? 100 : el % 5 === 0 ? 99 : el);
@@ -76,7 +74,6 @@ const countPrimes = (arr) => arr.filter(x => {
 console.log(countPrimes([-10, -3, 0, 1]));
 console.log(countPrimes([7, 4, 11, 23, 17]));
 console.log(countPrimes([41, 53, 19, 47, 67]));
-
 
 console.log(`\n======================== Task - 9 ========================`);
 const removeDuplicates = (arr) => arr.reduce((outpArr, cur) => outpArr.includes(cur) ? outpArr : [...outpArr, cur], []);
@@ -112,15 +109,12 @@ console.log(isDateFormatValid("02/29/2018 "));
 console.log(`\n======================== Task - 11 ========================`);
 const secondMax = (arr) => arr.length < 1 ? "This array is empty" : arr.length === 1 ? arr[0] : Math.max(...arr.filter(x => x !== Math.max(...arr)));
 
-
 console.log(secondMax([7, 4, 4, 4, 23, 23, 23]));
 console.log(secondMax([3, 4, 5, 6]));
 console.log(secondMax([10]));
 console.log(secondMax([]));
 
-
 console.log(`\n======================== Task - 12 ========================`);
-
 // const secondMin = (arr) => arr.length < 1 ? "This array is empty" : arr.length === 1 ? arr[0] : Math.min(...arr.filter(x => x !== Math.min(...arr)));
 
 const secondMin = (arr) => {
