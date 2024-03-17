@@ -155,7 +155,7 @@ const mostRepeated = (arr) => {
         }
     }
     return element;
-};
+}
 
 console.log(mostRepeated([4, 7, 23, 4, 4, 4, 23, 23, 23]));
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"]));
