@@ -107,7 +107,23 @@ console.log(isDateFormatValid("10/02/2020 "));
 console.log(isDateFormatValid("02/29/2018 "));
 
 console.log(`\n======================== Task - 11 ========================`);
-const secondMax = (arr) => arr.length < 1 ? "This array is empty" : arr.length === 1 ? arr[0] : Math.max(...arr.filter(x => x !== Math.max(...arr)));
+// const secondMax = (arr) => arr.length < 1 ? "This array is empty" : arr.length === 1 ? arr[0] : Math.max(...arr.filter(x => x !== Math.max(...arr)));
+
+//Second way
+const secondMax = (arr) => {
+    if (arr.length < 1)  return "This array is empty";
+    else if (arr.length < 2) return arr[0];
+    let firstMax;
+    let secMax;
+    for(const el of arr){
+        if (el > firstMax || firstMax === undefined) { 
+            secMax = firstMax; 
+            firstMax = el; 
+        } 
+        else if ((el > secMax && el !== firstMax) || secMax === undefined) secMax = el; 
+    } 
+    return secMax;
+}
 
 console.log(secondMax([7, 4, 4, 4, 23, 23, 23]));
 console.log(secondMax([3, 4, 5, 6]));
@@ -117,6 +133,7 @@ console.log(secondMax([]));
 console.log(`\n======================== Task - 12 ========================`);
 // const secondMin = (arr) => arr.length < 1 ? "This array is empty" : arr.length === 1 ? arr[0] : Math.min(...arr.filter(x => x !== Math.min(...arr)));
 
+// Second way
 const secondMin = (arr) => {
     if (arr.length < 1)  return "This array is empty";
     else if (arr.length < 2) return arr[0];
