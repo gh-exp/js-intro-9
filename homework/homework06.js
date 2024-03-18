@@ -40,7 +40,7 @@ console.log(checkAge(1920))
 console.log(checkAge(1800));
 
 console.log(`\n======================== Task - 5 ========================`);
-const averageOfEdges = (n1, n2, n3) => (Math.max(n1, n2, n3) + Math.min(n1, n2, n3)) / 2;
+const averageOfEdges = (...arg) => (Math.max(...arg) + Math.min(...arg)) / 2;
 
 console.log(averageOfEdges(0, 0, 0));
 console.log(averageOfEdges(0, 0, 6));
