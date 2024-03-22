@@ -155,26 +155,47 @@ console.log(secondMin([10]));
 console.log(secondMin([]));
 
 console.log(`\n======================== Task - 13 ========================`);
+// Yesterday I practiced on HW06 Task-13 using the object method introduced by Akin.
 const mostRepeated = (arr) => {
-    if (arr.length < 1) return 'This array is empty';
-    else if (arr.length === 1) return arr[0];
-    let max = 0;
-    let count, element;
-    for (let i = 0; i < arr.length - 1; i++) {
-        count = 1;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] === arr[j]) count++;
-        }
-        if (max < count) {
-            max = count;
-            element = arr[i];
-        }
-    }
-    return element;
+    if(arr.length < 1) return 'This array is empty';
+    const objMap = {};
+    arr.forEach(el => (!objMap[el]) ? objMap[el] = 1 : objMap[el]++);
+    return Object.entries(objMap).reduce((max, el) => el[1] >= max[1] ? el : max)[0];
 }
+// During the solution, the question arose as to why my .reduce method instead of .forEach does not work like this:
+const mostRepeated1 = (arr) => {
+    if(arr.length < 1) return 'This array is empty';
+    const obj = arr.reduce((objMap, el) => (!objMap[el]) ? objMap[el] = 1 : objMap[el]++, {});
+    return Object.entries(obj).reduce((max, el) => el[1] >= max[1] ? el : max)[0];
+}
+// Thanks
+// const mostRepeated = (arr) => {
+//     if (arr.length < 1) return 'This array is empty';
+//     else if (arr.length === 1) return arr[0];
+//     let max = 0;
+//     let count, element;
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         count = 1;
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] === arr[j]) count++;
+//         }
+//         if (max < count) {
+//             max = count;
+//             element = arr[i];
+//         }
+//     }
+//     return element;
+// }
 
 console.log(mostRepeated([4, 7, 23, 4, 4, 4, 23, 23, 23]));
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"]));
 console.log(mostRepeated([10]));
 console.log(mostRepeated(["TechGlobal"]));
 console.log(mostRepeated([]));
+
+console.log(mostRepeated1([4, 7, 23, 4, 4, 4, 23, 23, 23]));
+console.log(mostRepeated1(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"]));
+console.log(mostRepeated1([10]));
+console.log(mostRepeated1(["TechGlobal"]));
+console.log(mostRepeated1([]));
+
