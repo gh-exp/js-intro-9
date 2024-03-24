@@ -1,3 +1,5 @@
+const { CharacterHelper } = require('..//utils//CharacterHelper');
+
 console.log(`\n======================== Task - 1 ========================`);
 const hasUpperCase = (str) => 0 !== str.trim().split('').filter(el => 65 <= el.charCodeAt(0) && el.charCodeAt(0) <= 90).length;
 
@@ -10,7 +12,10 @@ const hasUpperCase = (str) => {
     }
     return false;
 }
+// Fourth way
+const hasUpperCase = (str) => 0 !== str.trim().split('').filter(el => CharacterHelper.isUpperCase(el)).length;
 */
+
 console.log(hasUpperCase("javascript"));
 console.log(hasUpperCase("John"));
 console.log(hasUpperCase("$125.0"));
@@ -74,19 +79,24 @@ console.log(arrFactorial([]));
 
 
 console.log(`\n======================== Task - 8 ========================`);
+/* 
+First way
+// const categorizeCharacters = (str) => {
+//     const result = ['', '', ''];
+//     for (let i = 0; i < str.length; i++) {
+//         if ('0123456789'.includes(str[i])) result[1] += str[i];
+//         else if (97 <= str[i].toLowerCase().charCodeAt(0) && str[i].toLowerCase().charCodeAt(0) <= 122) result[0] += str[i];
+//         else result[2] += str[i]; // with space
+//     }
+//     return result;
+// }
+Second way
+*/
 const categorizeCharacters = (str) => {
-    const result = ['', '', ''];
-    for (let i = 0; i < str.length; i++) {
-        if ('0123456789'.includes(str[i])) result[1] += str[i];
-        else if (97 <= str[i].toLowerCase().charCodeAt(0) && str[i].toLowerCase().charCodeAt(0) <= 122) result[0] += str[i];
-        else result[2] += str[i];
-    }
-    return result;
+    const res = ['', '', ''];
+    str.split('').forEach(el => CharacterHelper.isLetter(el) ? res[0] += el : CharacterHelper.isDigit(el) ? res[1] += el : res[2] += el);
+    return res;
 }
-// letters at index of 0, 65-90, 97-122
-// digits at index of 1  
-// specials at index of 2. 
-
 console.log(categorizeCharacters("1234"));
 console.log(categorizeCharacters("abc123$#%"));
 console.log(categorizeCharacters("12DDDb$%3cgf %"));
