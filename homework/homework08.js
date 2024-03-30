@@ -35,18 +35,35 @@ console.log(containsValue(["abc", "def", "123"], "Abc"));
 console.log(containsValue(["abc", "def", "123", "Javascript", "Hello"], "123"));
 
 console.log(`\n======================== Task - 5 ========================`);
+// Version  with the "don't move" symbol
 const reverseSentence = (str) => {
     if (!str.trim().includes(' ')) return `There is not enough words!`;
+    let lSymbol;
+    if (CharacterHelper.isSpecial(str.at(-1))) {
+        lSymbol = str.at(-1);
+        str = str.slice(0, -1);
+    }
+    else lSymbol = '';
     const arr = str.trim().split(' ');
     [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
     [arr[0]] = [arr[0][0].toUpperCase() + arr[0].slice(1)];
     [arr[arr.length - 1]] = [arr[arr.length - 1][0].toLowerCase() + arr[arr.length - 1].slice(1)];
-    return arr.join(' ');
+    return arr.join(' ') + lSymbol;
 }
 
+// Original version
+// const reverseSentence = (str) => {
+//     if (!str.trim().includes(' ')) return `There is not enough words!`;
+//     const arr = str.trim().split(' ');
+//     [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+//     [arr[0]] = [arr[0][0].toUpperCase() + arr[0].slice(1)];
+//     [arr[arr.length - 1]] = [arr[arr.length - 1][0].toLowerCase() + arr[arr.length - 1].slice(1)];
+//     return arr.join(' ');
+// }
+
 console.log(reverseSentence("Hello"));
-console.log(reverseSentence("Javascript is fun")); //		-> "Fun is javascript"
-console.log(reverseSentence("This is a sentence")); // 	-> "Sentence a is this"
+console.log(reverseSentence("Javascript is fun!")); //		-> "Fun is javascript"
+console.log(reverseSentence("This is a sentence.")); // 	-> "Sentence a is this"
 
 console.log(`\n======================== Task - 6 ========================`);
 const removeStringSpecialsDigits = (str) => str.trim().split('').filter(x => (!(CharacterHelper.isDigit(x) || CharacterHelper.isSpecial(x)))).join('');
@@ -70,7 +87,7 @@ console.log(getCommons(["Javascript", "is", "fun"], ["Javascript", "C#", "Python
 console.log(getCommons(["Javascript", "C#", "C#"], ["Python", "C#", "C++"]));
 
 console.log(`\n======================== Task - 9 ========================`);
-const noXInVariables = (arr) => arr.map(el => typeof el === 'number'? el : el.split('').filter(x => x.toLowerCase() !== 'x').join('')).filter(x => x.length !==0);
+const noXInVariables = (arr) => arr.map(el => typeof el === 'number' ? el : el.split('').filter(x => x.toLowerCase() !== 'x').join('')).filter(x => x.length !== 0);
 
 console.log(noXInVariables(["abc", 123, "#$%"]));
 console.log(noXInVariables(["xyz", 123, "#$%"]));
