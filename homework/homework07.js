@@ -93,7 +93,7 @@ First way
 Second way
 */
 const categorizeCharacters = (str) => {
-    const res = ['', '', ''];
+    const res = [[],[],[]];
     str.split('').forEach(el => CharacterHelper.isLetter(el) ? res[0] += el : CharacterHelper.isDigit(el) ? res[1] += el : res[2] += el);
     return res;
 }
