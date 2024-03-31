@@ -1,7 +1,10 @@
 const { CharacterHelper } = require('..//utils/CharacterHelper');
 
 console.log(`\n======================== Task - 1 ========================`);
-const hasLowerCase = (str) => 0 !== str.trim().split('').filter(el => 97 <= el.charCodeAt(0) && el.charCodeAt(0) <= 122).length;
+// Version with charCodeAt()
+// const hasLowerCase = (str) => 0 !== str.trim().split('').filter(el => 97 <= el.charCodeAt(0) && el.charCodeAt(0) <= 122).length;
+
+const hasLowerCase = (str) => 0 < str.trim().split('').filter(el => 'a' <= el && el <= 'z').length;
 
 console.log(hasLowerCase(""));
 console.log(hasLowerCase("JAVASCRIPT"));
@@ -30,6 +33,9 @@ console.log(numberAndSquare([0, 1, -10]));
 console.log(`\n======================== Task - 4 ========================`);
 const containsValue = (arr, str) => arr.reduce((res, el) => el === str ? res = true : res, false);
 
+// Second way
+// const containsValue = (arr, str) => arr.filter(el => el === str).length > 0;
+
 console.log(containsValue(["abc", "foo", "javascript"], "hello"));
 console.log(containsValue(["abc", "def", "123"], "Abc"));
 console.log(containsValue(["abc", "def", "123", "Javascript", "Hello"], "123"));
@@ -38,16 +44,19 @@ console.log(`\n======================== Task - 5 ========================`);
 // Version  with the "don't move" symbol
 const reverseSentence = (str) => {
     if (!str.trim().includes(' ')) return `There is not enough words!`;
+
     let lSymbol;
     if (CharacterHelper.isSpecial(str.at(-1))) {
         lSymbol = str.at(-1);
         str = str.slice(0, -1);
     }
     else lSymbol = '';
+
     const arr = str.trim().split(' ');
     [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
     [arr[0]] = [arr[0][0].toUpperCase() + arr[0].slice(1)];
     [arr[arr.length - 1]] = [arr[arr.length - 1][0].toLowerCase() + arr[arr.length - 1].slice(1)];
+
     return arr.join(' ') + lSymbol;
 }
 
@@ -66,7 +75,10 @@ console.log(reverseSentence("Javascript is fun!")); //		-> "Fun is javascript"
 console.log(reverseSentence("This is a sentence.")); // 	-> "Sentence a is this"
 
 console.log(`\n======================== Task - 6 ========================`);
-const removeStringSpecialsDigits = (str) => str.trim().split('').filter(x => (!(CharacterHelper.isDigit(x) || CharacterHelper.isSpecial(x)))).join('');
+// With CharacterHelper functions 
+// const removeStringSpecialsDigits = (str) => str.trim().split('').filter(x => (!(CharacterHelper.isDigit(x) || CharacterHelper.isSpecial(x)))).join('');
+
+const removeStringSpecialsDigits = (str) => str.trim().split('').filter(x => (' ' === x || ('a' <= x.toLowerCase() && x.toLowerCase() <= 'z'))).join('');
 
 console.log(removeStringSpecialsDigits("123Javascript #$%is fun")); //"Javascript is fun" 
 console.log(removeStringSpecialsDigits("Cypress"));
