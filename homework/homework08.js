@@ -6,6 +6,7 @@ console.log(`\n======================== Task - 1 ========================`);
 
 const hasLowerCase = (str) => 0 < str.trim().split('').filter(el => 'a' <= el && el <= 'z').length;
 
+
 console.log(hasLowerCase(""));
 console.log(hasLowerCase("JAVASCRIPT"));
 console.log(hasLowerCase("hello"));
@@ -99,7 +100,7 @@ console.log(getCommons(["Javascript", "is", "fun"], ["Javascript", "C#", "Python
 console.log(getCommons(["Javascript", "C#", "C#"], ["Python", "C#", "C++"]));
 
 console.log(`\n======================== Task - 9 ========================`);
-const noXInVariables = (arr) => arr.map(el => typeof el === 'number' ? el : el.split('').filter(x => x.toLowerCase() !== 'x').join('')).filter(x => x.length !== 0);
+const noXInVariables = (arr) => arr.map(el => typeof el === 'number' ? el : el.split('').filter(x => x.toLowerCase() !== 'x').join('')).filter(i => i.length !== 0);
 
 console.log(noXInVariables(["abc", 123, "#$%"]));
 console.log(noXInVariables(["xyz", 123, "#$%"]));
