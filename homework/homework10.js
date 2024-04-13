@@ -32,6 +32,26 @@ const calculateTotalPrice2 = (obj) => {
     }
     return sum.toFixed(2);
 }
+// const calculateTotalPrice2 = (obj) => {
+//     const price = { apple: 2.00, orange: 3.29, mango: 4.99, pineapple: 5.25 };
+//     let sum = 0;
+//     for (const key in obj) {
+//         if (!isNaN(price[key])) {
+//             if (key === "apple") {
+//                 for (let i = 1; i <= obj.apple; i++) {
+//                     sum = (i % 2 === 0) ? sum + (price.apple / 2) : sum + price.apple;
+//                 }
+//             }
+//             else if (key === "mango") {
+//                 for (let i = 1; i <= obj.mango; i++) {
+//                     sum = (i % 4 !== 0) ? sum + price.mango : sum;
+//                 }
+//             }
+//             else sum += (obj[key] * price[key]);
+//         }
+//     }
+//     return sum.toFixed(2);
+// }
 
 console.log(calculateTotalPrice2({ apple: 3, mango: 5 })); //  -> 24.96
 console.log(calculateTotalPrice2({ apple: 4, pineapple: 8, orange: 3 })); //  -> 57.87
