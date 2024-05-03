@@ -91,7 +91,6 @@ console.log(count([0, -1, 15, 1], false)); // -> 3
 console.log(count([1, 2, 3, 4, -4], true)); // -> 3
 
 console.log(`\n======================== Task - 7 ========================`);
-
 const sumDigitsDouble = str => {
   const arr = str.split("").filter(x => "0123456789".includes(x));
   return arr.length < 1 ? -1 : 2 * arr.reduce((sum, el) => sum += Number(el), 0);
