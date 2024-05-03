@@ -1,7 +1,7 @@
 console.log(`\n======================== Task - 1 ========================`);
 const countPalindrome = str => {
   const palindrome = txt => txt.trim().toLowerCase() === txt.trim().split("").reverse().join("").toLowerCase() && str.trim().length > 1;
-  return str.trim().split(" ").reduce((count, el) => (palindrome(el) ? (count += 1) : count), 0);
+  return str.trim().split(" ").reduce((count, el) => palindrome(el) ? count += 1 : count, 0);
 };
 
 console.log(countPalindrome("Mom and Dad")); //  -> 2
@@ -135,7 +135,7 @@ const countOccurrence = (str1, str2) => {
       !obj3[prop] ? obj3[prop] = 1 : obj3[prop]++;
     }
   };
-  return Object.values(obj3).reduce((min, el) => el <= min ? el : min);
+  return Math.min(...Object.values(obj3));
 };
 
 console.log(countOccurrence("Javascript", "Java")); //     -> 1
