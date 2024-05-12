@@ -34,7 +34,10 @@ console.log(`\n======================== Task - 4 ========================`);
 //   return res;
 // }
 // Second way
-const myPow = (x, n) => n === 0 ? 1 : n === 1 ? x : n % 2 === 0 ? myPow(x * x, n / 2) : x * myPow(x * x, (n - 1) / 2);
+// const myPow = (x, n) => n === 0 ? 1 : n === 1 ? x : n % 2 === 0 ? myPow(x * x, n / 2) : x * myPow(x * x, (n - 1) / 2);
+
+// if n is negative 
+const myPow = (x, n) => n === 0 ? 1 : n === 1 ? x : n < 0 ? 1 / myPow(x, -n) : n % 2 === 0 ? myPow(x * x, n / 2) : x * myPow(x * x, (n - 1) / 2);
 
 console.log(myPow(3, 3)); // -> 27
 console.log(myPow(10, 1)); //  -> 10
@@ -43,6 +46,7 @@ console.log(myPow(1, 1)); // -> 1
 console.log(myPow(4, 2)); // -> 16
 console.log(myPow(0, 0)); //  -> 1
 console.log(myPow(5, 3)); // -> 125
+console.log(myPow(5, -3)); // -> 0.008
 
 console.log(`\n======================== Task - 5 ========================`);
 const findLongestWord = (str) => str.trim().split(' ').reduce((long, el) => long.length < el.length ? long = el : long, '');
