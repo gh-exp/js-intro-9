@@ -138,6 +138,9 @@ const countOccurrence = (str1, str2) => {
   return Math.min(...Object.values(obj3));
 };
 
+// Third way
+// const countOccurrence = (str1, str2) => [...str2].reduce((min, char) => Math.min(min, [...str1.toLowerCase()].filter(c => c === char.toLowerCase()).length / [...str2.toLowerCase()].filter(c => c === char.toLowerCase()).length), Infinity) | 0;
+
 console.log(countOccurrence("Javascript", "Java")); //     -> 1
 console.log(countOccurrence("Hello", "World")); //     -> 0
 console.log(countOccurrence("Can I can a can", "anc")); //  -> 3

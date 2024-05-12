@@ -25,17 +25,21 @@ console.log(decimal2([])); //      -> []
 console.log(decimal2([4.35623, 8.9742])); //      -> [4.36, 8.97]
 
 console.log(`\n======================== Task - 4 ========================`);
-const myPow = (x, n) => {
-  let res = 1;
-  if (n === 0) return res;
-  else if (n === 1) return x;
-  else {
-    for (let i = 1; i <= n; i++) {
-      res *= x;
-    }
-  }
-  return res;
-}
+// First way
+// const myPow = (x, n) => {
+//   let res = 1;
+//   if (n === 0) return res;
+//   else if (n === 1) return x;
+//   else {
+//     for (let i = 1; i <= n; i++) {
+//       res *= x;
+//     }
+//   }
+//   return res;
+// }
+// Second way
+const myPow = (x, n) => n === 0 ? 1 : n === 1 ? x : x ** n;
+
 console.log(myPow(3, 3)); // -> 27
 console.log(myPow(10, 1)); //  -> 10
 console.log(myPow(100, 0)); //  -> 1
