@@ -27,7 +27,7 @@ console.log(hasVowel("ABC"));
 
 console.log(`\n======================== Task - 4 ========================`);
 const checkAge = (num) => {
-    let thisYear = new Date().getFullYear();
+    let thisYear = new Date();
     if (num <= thisYear - 120 || num > thisYear) return "AGE IS NOT VALID";
     if (num > thisYear - 16) return "AGE IS NOT ALLOWED";
     return "AGE IS ALLOWED";
