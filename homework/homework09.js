@@ -64,6 +64,9 @@ const findBiggestNumber = (str) => {
     }
     return arr.length < 1 ? 0 : Math.max(...arr);
 }
+
+// findBiggestNumber = (str) => Math.max(...str.split(/\D+/))
+
 console.log(findBiggestNumber("abc$")); // -> 0
 console.log(findBiggestNumber("a1b4c 6")); // -> 6
 console.log(findBiggestNumber("ab110c045d")); // -> 110
